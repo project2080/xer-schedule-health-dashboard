@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XER Schedule Health Dashboard</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>XER Schedule Health Dashboard</h1>
+            <p>Based on DCMA 14 Point Assessment</p>
+        </div>
+
+        <div class="file-upload-section">
+            <h2>Upload File</h2>
+            <div class="alert-message" id="errorMessage"></div>
+            <div class="success-message" id="successMessage"></div>
+            
+            <div class="file-upload-wrapper">
+                <input type="file" id="fileInput" accept=".xer" style="display: none;">
+                <button class="button-primary" id="uploadButton">Select XER File</button>
+                <span id="fileName" class="file-name">No file selected</span>
+            </div>
+            
+            <div class="date-input-wrapper">
+                <label for="dataDate">Data Date:</label>
+                <input type="date" id="dataDate">
+                <button class="button-primary" id="processButton" disabled>Process Data</button>
+            </div>
+        </div>
+
+        <div class="loading" id="loadingIndicator">
+            <div class="spinner"></div>
+            <p>Processing data, please wait...</p>
+        </div>
+
+        <div id="dashboardContent" class="hidden">
+            <!-- Section 1: KPI Cards -->
+            <div class="dashboard-section">
+                <h2 class="section-title">KPIs and Tasks Summary</h2>
+                <div class="kpi-cards">
+                    <div class="kpi-card kpi-card-blue">
+                        <div class="kpi-card-title">KPIs Met</div>
+                        <div class="kpi-card-value" id="kpisFulfilled">0/0</div>
+                        <div class="kpi-card-percentage" id="kpisFulfilledPercentage">0%</div>
+                    </div>
+                    <div class="kpi-card kpi-card-green">
+                        <div class="kpi-card-title">Completed Tasks</div>
+                        <div class="kpi-card-value" id="tasksCompleted">0</div>
+                        <div class="kpi-card-percentage" id="tasksCompletedPercentage">0%</div>
+                    </div>
+                    <div class="kpi-card kpi-card-yellow">
+                        <div class="kpi-card-title">In Progress Tasks</div>
+                        <div class="kpi-card-value" id="tasksInProgress">0</div>
+                        <div class="kpi-card-percentage" id="tasksInProgressPercentage">0%</div>
+                    </div>
+                    <div class="kpi-card kpi-card-red">
+                        <div class="kpi-card-title">Not Started Tasks</div>
+                        <div class="kpi-card-value" id="tasksNotStarted">0</div>
+                        <div class="kpi-card-percentage" id="tasksNotStartedPercentage">0%</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 2: KPI Table -->
+            <div class="dashboard-section">
+                <div class="card">
+                    <h2 class="section-title">KPIs Detail</h2>
+                    <div class="actions-row">
+                        <button id="downloadExcelButton" class="button-download" disabled>
+                            <i></i> Download Non-Compliant Activities
+                        </button>
+                    </div>
+                    <table id="kpiTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>KPI</th>
+                                <th>Description</th>
+                                <th>Current Value</th>
+                                <th>Threshold</th>
+                                <th>Threshold Adjustment</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Rows will be added dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Section 3: Executive Summary -->
+            <div class="dashboard-section">
+                <div class="card">
+                    <h2 class="section-title">Executive Summary</h2>
+                    <div id="executiveSummary">
+                        <h3>Current Status</h3>
+                        <p id="currentStatus">Upload a file to view the summary.</p>
+                        
+                        <h3>Improvement Proposals</h3>
+                        <div id="improvementProposals">
+                            <p>Upload a file to view improvement proposals.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
