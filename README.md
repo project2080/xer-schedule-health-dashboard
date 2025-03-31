@@ -59,7 +59,7 @@ The XER Schedule Health Dashboard is a web-based analysis tool for assessing the
 
 ## 📜 Licence
 
-This project is licensed under the terms of the Apache 2.0 licence - see the [LICENCE](LICENCE) file for details.
+This project is licensed under the terms of the Apache 2.0 licence - see the [LICENCE](https://github.com/project2080/xer-schedule-health-dashboard/blob/main/LICENSE) file for details.
 
 ## 👥 Contributing
 
