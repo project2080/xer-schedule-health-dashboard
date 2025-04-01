@@ -1,8 +1,8 @@
-# 📊 XER Schedule Health Dashboard
+# 📊 DCMA XER Schedule Health Dashboard
 
 ## 📋 Description
 
-The XER Schedule Health Dashboard is a web-based analysis tool for assessing the quality and health of project schedules in XER format (Primavera P6 file format). This application implements the DCMA (Defense Contract Management Agency) 14-point assessment to provide schedule quality metrics and specific improvement suggestions.
+The DCMA XER Schedule Health Dashboard is a web-based analysis tool for assessing the quality and health of project schedules in XER format (Primavera P6 file format). This application implements the DCMA (Defense Contract Management Agency) 14-point assessment to provide schedule quality metrics and specific improvement suggestions.
 
 ## ✨ Features
 
